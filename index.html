@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app='meanApp'>
+	<head>
+		<title>LendIt</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--Bootstrap Files-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+		<p>khanh nguyen hoang huu</p>
+		<div style="height:100%;" ui-view></div>
+		<!-- for gogole map div id='map'></div -->
+	</body>
+
+	<!--Angular Scripts-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+	<!--FilePicker Scripts-->
+	<script src="public/library/filepicker.js"></script>
+	<script src="public/library/angular_filepicker.js"></script>
+
+	<!--Controllers-->
+	<script src="public/app.js"></script>
+	<!--Services-->
+	<script src='public/common/services/authentication.service.js'></script>
+	<script src='public/common/services/data.service.js'></script>
+	<!--Directives-->
+	<script src='public/common/directives/navigation/navigation.controller.js'></script>
+	<script src='public/common/directives/navigation/navigation.directive.js'></script>
+	<script src='public/common/directives/images/images.controller.js'></script>
+	<script src='public/common/directives/images/images.directive.js'></script>
+	<!--Authentication-->
+	<script src='public/auth/login/login.controller.js'></script>
+	<script src='public/auth/register/register.controller.js'></script>
+	<script src='public/home/home.controller.js'></script>
+	<!--Profile-->
+	<script src='public/profile/profile.controller.js'></script>
+
+	<!-- Google Maps API & Scripts-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPwdZTuGLzv76_l9MdMnuCo7reDrBfBQg"></script> 
+	<script >
+		function initMap(){
+			var map = new google.maps.Map(document.getElementById('map'), {
+		          zoom: 15,
+		          center: {lat: 37.712, lng: -122.092}
+		        });
+		}
+		// not in use yet
+		// initMap();
+	</script>
+
+	<!--LendIt CSS-->
+	<style>
+		/*HTML Tag Styles*/
+		html { height: 100%;}
+		body {
+			min-width:600px;
+		   height: 100%; 
+		   margin: 0; 
+		   padding: 0;
+		}
+		
+		/* 
+		Dont know whos CSS
+		Always set the map height explicitly to define the size of the div
+      element that contains the map. 
+      */
+      #map {
+      	height: 645px;
+   		width: 645px;
+      }
+      /* Optional: Makes the sample page fill the window. */ 
+	</style>
+</html>

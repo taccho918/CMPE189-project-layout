@@ -1,0 +1,31 @@
+<navigation></navigation>
+<!--Home View Container-->
+<!--Make it nicer, TBD-->
+<div style="width:100%; padding-top:50px; height:100%;">
+	<!--Sign In Container-->
+	<div ng-hide="loggedIn" style="float:right; background-image:url('http://www.nexus6wallpapers.com/wp-content/uploads/Simple/Gradient%20background%2016%20Nexus%206%20Wallpapers.jpg'); background-attachment:fixed; background-repeat:no-repeat; background-size:cover; width:300px; height:100%; text-align:center; border-left:4px solid #2F829E">
+		<br/>
+		<h1>Sign In</h1>
+		<!--Sign In Form-->
+		<form ng-submit="signIn()">
+			<div class="form-group" style="padding:10px 30px 10px 30px;">
+				<input type="email" class="form-control" id="email" placeholder="Enter Email" ng-model="form.email">
+			</div>
+			<div class="form-group" style="padding:10px 30px 10px 30px;">
+				<input type="password" class="form-control" id="password" placeholder="Enter Password" ng-model="form.password">
+			</div>
+			<button type="submit" class="btn btn-primary">Sign In</button>
+		</form>
+		<h4 style="margin-top:35px;">New to LendIt</h4>
+		<h4><a ui-sref="register" style="color:">Register Here</a></h4>
+	</div>
+	<!--Main Pic Background-->
+	<div style="height:100%; width:100%; min-width:700px; margin-right:300px; background-image:url('http://i.imgur.com/tBvHNsi.jpg'); background-attachment:fixed; background-repeat:no-repeat; background-size:cover;">
+		<!--Welcome Text-->
+		<h1 id="welcome_text" style="color:white; position:absolute; top:35%; bottom:65%; width:100%; padding-right:300px; text-align:center;">
+			<span style="font-size:1.4em;">LendIt</span>
+			<br/>
+			<span style="font-size:.9em;">A Platform to Rent and Borrow</span>
+		</h1>
+	</div>
+</div>

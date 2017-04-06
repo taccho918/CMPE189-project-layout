@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" >
+	<div class="container-fluid">
+		<!--Logo-->
+		<div class="navbar-header">
+			<!--Sliding Menu-->
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a ui-sref="home" class="navbar-brand">LendIt</a>
+		</div>
+		<!--Nav Bar-->
+		<div class="collapse navbar-collapse" id="mainNavBar">
+			<!--Left Nav Items-->
+			<ul class="nav navbar-nav">
+				<li><a ui-sref="rent">Rent</a></li>
+				<li><a ui-sref="borrow">Borrow</a></li>
+				<li><a ui-sref="request"> Request</a></li>
+				<li ng-show="navvm.isLoggedIn" ><a ui-sref="myItem">My Items</a></li>
+			</ul>
+			<!--Search Bar-->
+			<form class="navbar-form navbar-left"   >
+				<div class="form-group" >
+					<input type="text" class="form-control"  style="border-right-width:0px; margin-left:-4px; width:250px;" required>
+				</div>
+				<button type="button" class="btn btn-default" style="border-top-left-radius:0px; border-bottom-left-radius:0px; background-color:#EDB90C; margin-left:-6px;" >
+					<span class="glyphicon glyphicon-search" aria-hidden="true" ></span>
+				</button>
+			</form>
+			<!--Right Nav Items-->
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-hide="navvm.isLoggedIn"><a ui-sref="login">Sign in</a></li>
+				<li ng-show="navvm.isLoggedIn"><a ui-sref="profile">{{ navvm.currentUser.name }}</a></li>
+				<li><a ng-show="navvm.isLoggedIn" ng-click="navvm.logout()" href="#"> Logout</a></li>
+				<li><a ng-hide="navvm.isLoggedIn" ui-sref="register">Register</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
