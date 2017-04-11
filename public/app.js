@@ -9,26 +9,37 @@
       .state('home', {
         url: '/',
         templateUrl: 'public/home/home.view.html',
-        controller: 'homeCtrl'
-        
+        controller: 'homeCtrl'    
       })
       .state('register', {
         url: '/register',
         templateUrl: 'public/auth/register/register.view.html',
-        controller: 'registerCtrl'
-        
+        controller: 'registerCtrl'        
       })
       .state('login', {
         url: '/login',
         templateUrl: 'public/auth/login/login.view.html',
-        controller: 'loginCtrl'
-      
+        controller: 'loginCtrl'     
       })
       .state('profile', {
         url: '/profile',
         templateUrl: 'public/profile/profile.view.html',
-        controller: 'profileCtrl'
-     
+        controller: 'profileCtrl'     
+      })
+      .state('product', {
+        url: '/product',
+        templateUrl: 'public/product/product.view.html',
+        controller: 'productCtrl'    
+      })
+      .state('detail', {
+        url: '/product/:random',
+        templateUrl: 'public/product/detail.view.html',
+        controller: 'detailController'
+      })
+      .state('shoppingCart', {
+        url: '/shoppingCart/',
+        templateUrl: 'public/shoppingCart/shoppingCart.view.html',
+        controller: 'shoppingCartController'
       })
 
     // use the HTML5 History API

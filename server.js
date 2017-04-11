@@ -21,6 +21,9 @@ app.use(passport.initialize());
 // get controller from other js file using require()
 var authenticationController = require('./server/controllers/authentication');
 var profileController = require('./server/controllers/profile');
+var productController =  require('./server/controllers/product');
+var shoppingCartController =  require('./server/controllers/shoppingCart');
+
 /* test connecting to mysql server successfully
 dbConnection.get().query('SELECT * from account', function(err, rows, fields) {
   if (!err){
@@ -44,6 +47,13 @@ app.post('/api/user/login', authenticationController.login);
 //profile
 app.get('/api/profile', auth, profileController.profileRead);
 app.post('/api/profile/updateUser',profileController.updateUser);
+// product 
+app.get('/api/product/getAll',productController.getAll);
+app.get('/api/product/getOne/:id',productController.getOne);
+
+// shopping cart
+app.post('/api/shoppingCart/add', shoppingCartController.add);
+app.post('/api/shoppingCart/get',shoppingCartController.get);
 
 var port = process.env.PORT  || 5000;
 app.listen(port, function(){

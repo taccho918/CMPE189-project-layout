@@ -3,12 +3,39 @@
   angular
     .module('meanApp')
     .controller('navigationCtrl', navigationCtrl);
-  navigationCtrl.$inject = ['$location','authentication'];
+  navigationCtrl.$inject = ['$location','authentication','$interval','$http'];
 
-  function navigationCtrl($location, authentication) {
+  function navigationCtrl($location, authentication,$interval,$http) {
     var vm = this;
     vm.isLoggedIn = authentication.isLoggedIn();
     vm.currentUser = authentication.currentUser();
+    
+    $http.post('/api/shoppingCart/get',authentication.currentUser())
+                .success(function(data){
+                  vm.numberShoppingCartItems = Object.keys(data).length;
+                  console.log(JSON.stringify(data) + "lenght: "+ Object.keys(data).length);
+                  
+                })
+                .error(function(error) {
+                  console.log('Error: ' + error);
+                });// end http post call
+  //  vm.numberShoppingCartItems = 0;
+    // check for login user
+  //  if (authentication.isLoggedIn()){
+      $interval(function(){
+            $http.post('/api/shoppingCart/get',authentication.currentUser())
+                .success(function(data){
+                  vm.numberShoppingCartItems = Object.keys(data).length;
+                  console.log(JSON.stringify(data) + "lenght: "+ Object.keys(data).length);
+                  
+                })
+                .error(function(error) {
+                  console.log('Error: ' + error);
+                });// end http post call
+            console.log("this is working")
+      }, 4000); // end interval call
+      
+  //  } // end if 
 
     //adding logout user
     vm.logout = function(){

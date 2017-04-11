@@ -1,0 +1,34 @@
+<navigation> </navigation>
+<!--Rent Item Container-->
+<div class="main" style="margin-top: 80px">
+    
+    <!--Images Directive for Item Pictures-->
+   
+    <div class="panel panel-default" style="float:left; width:425px; margin-left:20px;padding:4px; ">
+        <!--Main Image-->
+        <img src="{{item.image1URL}}" alt="Item Image Not Found" style="width:415px; height:400px; text-align:center;">
+        
+    </div>
+    <!--Item Details Container-->
+    <div class="panel panel-default item-display">
+       
+        <div id="item">
+            <h1 style="font-size:3.5em; margin:0px">{{item.name}}</h1>
+            
+            <h4 style="margin-top:10px; font-size:1.2em;">Price: ${{item.price}} </h4>
+            <h4 style="margin-top:10px; font-size:1.2em;">Availabe: {{item.quantity}} </h4>
+            <div style="display: inline-block;">
+                    <label style="width:auto;">Quantity</label>
+                    <input type="number" class="form-control number-input" min="1" step="1" ng-model="cartQuantity" required />
+            </div>
+            <h4 style="margin-bottom:0px; font-size:1.5em; margin-top:20px;">Description</h4>
+            <p style="padding:3px; word-wrap:break-word;">{{item.description}}
+            </p>
+            <!--<p style="">{{item.quantity}}</p>-->
+            <button ng-click="makePaypalPayment()" class="btn btn-info" style="margin-top: 20px">Pay for The Item</button> 
+            
+            <button ng-click="addToShoppingCart()" class="btn btn-info" style="margin-top: 20px">Add To Your Cart</button>
+        </div>
+        
+    </div>
+</div>

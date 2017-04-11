@@ -1,0 +1,43 @@
+<navigation> </navigation>
+<!--Rent View Container-->
+<div class="main" style="margin-top: 70px">
+  <!--Filter Buttons Container-->
+  <div class="row" >
+    <!--Categories Container-->
+    <div style="display:inline-block; float:left; margin-left:20px; " class="btn-group">
+      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Left Align">
+        {{selectedCategory}}
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li ng-repeat="category in categories" ng-click="filter(category)"><a style="cursor: pointer;">{{category}}</a></li>
+      </ul>
+    </div>
+    <!--New Post Container-->
+    <div style="display:inline-block; float:right; margin-right:15px;" ng-show="loggedIn">
+      <a style="text-decoration: none; color:white;" ui-sref="rent_post">
+        <button type="button" class="btn btn-info" aria-label="text-right Align">
+          Post New Item
+        </button>
+      </a>
+    </div>
+    <div style="clear:both;"/>
+  </div>
+  <!--Items Container-->
+  <div class="row" style="margin:20px 10px 0px 10px;" >
+    <!--Item-->
+    <div class="col-md-4" style="width:246px; display:inline-block;" ng-repeat="item in displayedItems">
+      <!--Item Preview Content-->
+      <div class="thumbnail item" ui-sref="detail({random: item.productId})">
+        <img ng-src="{{item.image1URL}}" alt="Image Not Found" style="width:100%; height:140px;"/>
+        <p class="item-preview-title">{{item.name}}</p>
+        <p class="item-preview-description">
+          {{item.description}}
+          <span class="item-preview-price">{{item.price}} USD</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

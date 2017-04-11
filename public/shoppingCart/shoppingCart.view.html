@@ -1,0 +1,24 @@
+<navigation> </navigation>
+<!--Rent Item Container-->
+<div class="main" style="margin-top: 80px">
+    
+    <!--Items Container-->
+  <div class="row" style="margin:20px 10px 0px 10px;" >
+    <!--Item-->
+    <div class="col-md-4" style="width:246px; display:inline-block;" ng-repeat="item in shoppingCartItems">
+      <!--Item Preview Content-->
+      <div class="thumbnail item" >
+        <img ng-src="{{item.image}}" alt="Image Not Found" style="width:100%; height:140px;"/>
+        <p class="item-preview-title">{{item.name}}</p>
+        <p class="item-preview-title">${{item.price}}</p>
+        <label style="width:auto;">Quantity</label>
+                    <input type="number" class="form-control number-input" min="1" step="1" ng-model="item.quantity" required />
+        
+      </div>
+    </div>
+  </div>
+
+ <button ng-click="makePaypalPayment()" class="btn btn-info" style="margin-top: 20px">CheckOut for The Items</button> 
+  
+
+</div>
