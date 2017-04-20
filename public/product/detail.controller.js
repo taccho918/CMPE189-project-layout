@@ -71,7 +71,14 @@
 
       
     }; //end add to shopping cart 
-    
+    function initMap(){
+      var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: {lat: 37.712, lng: -122.092}
+            });
+    }
+    // not in use yet
+     initMap();
     
   }// end detailController function
 

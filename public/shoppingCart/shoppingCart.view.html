@@ -13,12 +13,12 @@
         <p class="item-preview-title">${{item.price}}</p>
         <label style="width:auto;">Quantity</label>
                     <input type="number" class="form-control number-input" min="1" step="1" ng-model="item.quantity" required />
-        
+        <button ng-click="delete(item.productId)" class="btn btn-info" style="margin-top: 5px">Delete</button>
       </div>
     </div>
   </div>
 
- <button ng-click="makePaypalPayment()" class="btn btn-info" style="margin-top: 20px">CheckOut for The Items</button> 
+ <button ng-click="makePaypalPayment()" class="btn btn-info" style="margin-top: 20px">CheckOut for The Items (Total: {{total}})</button> 
   
 
 </div>

@@ -23,6 +23,7 @@ var authenticationController = require('./server/controllers/authentication');
 var profileController = require('./server/controllers/profile');
 var productController =  require('./server/controllers/product');
 var shoppingCartController =  require('./server/controllers/shoppingCart');
+var transactionController = require('./server/controllers/transaction');
 
 /* test connecting to mysql server successfully
 dbConnection.get().query('SELECT * from account', function(err, rows, fields) {
@@ -54,6 +55,13 @@ app.get('/api/product/getOne/:id',productController.getOne);
 // shopping cart
 app.post('/api/shoppingCart/add', shoppingCartController.add);
 app.post('/api/shoppingCart/get',shoppingCartController.get);
+app.post('/api/shoppingCart/delete',shoppingCartController.delete);
+
+// transaction and payment
+app.post('/api/transaction/add',transactionController.add);
+app.post('/api/transaction/getTransactionFact',transactionController.getTransactionFact);
+app.post('/api/transaction/getTransactionFactDetail',transactionController.getTransactionFactDetail);
+
 
 var port = process.env.PORT  || 5000;
 app.listen(port, function(){

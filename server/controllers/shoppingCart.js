@@ -35,3 +35,18 @@ module.exports.get = function(req, res){
             
     	});
 }; // end get function
+
+// delete item from shooping cart table by item id
+module.exports.delete = function(req, res){
+	// query to insert item to shopping cart
+	console.log("before delete query : "+req.body.productId + "accountId : "+req.body.accountId);
+    dbConnection.get().query("DELETE FROM shoppingcart WHERE productId = ? AND accountId = ? ",[req.body.productId,req.body.accountId],function(err, result){
+    		if (err) throw err;
+    		res.status(200);
+    		console.log(" inside get shopping cart : " );
+    		res.json({
+            	"message" : "Delete item from shoppingcart Successfully"
+            });
+            
+    	});
+}; // end delete function

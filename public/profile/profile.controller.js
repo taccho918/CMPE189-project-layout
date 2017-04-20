@@ -9,7 +9,7 @@
       $scope.reload = function(){
          meanData.getProfile()
             .success(function(data) {
-               data.profileImage = 'https://cdn.filestackcontent.com/QB2JKF6STeTpI7EP6u5d';
+               data.profileImage = 'http://graphicdesignjunction.com/wp-content/uploads/2012/08/cute-baby-photo-37.jpg';
                $scope.user = data;
                console.log('Profile Controller: ' + data.email+ 'account id'+data.accountID);
             })
@@ -19,7 +19,30 @@
          $scope.closeAlert();
       };
 
-      $scope.uploadUserPhoto = function () {
+
+      // get all transaction history
+      $scope.transactionHistory;
+      $http.post('/api/transaction/getTransactionFact', authentication.currentUser())
+      .success(function(data){
+         console.log(JSON.stringify(data));     
+         $scope.transactionHistory = data;                 
+      })
+      .error(function(data) {
+         console.log('Error: ' + data);
+      });// end get all transaction history
+
+      // get all transaction fact about this loggedin user
+      $scope.transactionFactDetail;
+      $http.post('/api/transaction/getTransactionFactDetail', authentication.currentUser())
+      .success(function(data){
+         console.log(JSON.stringify(data));     
+         $scope.transactionFactDetail = data;                 
+      })
+      .error(function(data) {
+         console.log('Error: ' + data);
+      });// end get all transaction fact detail history
+
+      $scope.uploadUserPhoto = function () {  // not in used yet [update this if have time KHANH]
          filepickerService.pick({
             mimetype: 'image/*',
             language: 'en',
@@ -32,7 +55,7 @@
             $scope.updateUserPhoto();
          });
       };
-      $scope.updateUserPhoto = function () {
+      $scope.updateUserPhoto = function () {   // not in used yet [update this if have time KHANH]
          console.log("Upload Profile Picture");
          $http.post('/api/profile/updateUserPhoto', $scope.user)
             .success(function(data){

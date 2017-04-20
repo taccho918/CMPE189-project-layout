@@ -9,7 +9,7 @@
     var vm = this;
     vm.isLoggedIn = authentication.isLoggedIn();
     vm.currentUser = authentication.currentUser();
-    
+    // initial call http to get number of items in shoping cart
     $http.post('/api/shoppingCart/get',authentication.currentUser())
                 .success(function(data){
                   vm.numberShoppingCartItems = Object.keys(data).length;
@@ -19,9 +19,8 @@
                 .error(function(error) {
                   console.log('Error: ' + error);
                 });// end http post call
-  //  vm.numberShoppingCartItems = 0;
-    // check for login user
-  //  if (authentication.isLoggedIn()){
+      // this call to update number of items in shopping cart every 4 second
+      /*
       $interval(function(){
             $http.post('/api/shoppingCart/get',authentication.currentUser())
                 .success(function(data){
@@ -34,8 +33,8 @@
                 });// end http post call
             console.log("this is working")
       }, 4000); // end interval call
-      
-  //  } // end if 
+      */
+
 
     //adding logout user
     vm.logout = function(){

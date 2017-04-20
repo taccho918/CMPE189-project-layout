@@ -5,7 +5,7 @@
    productCtrl.$inject = ['$location','$http','$scope','authentication'];
 
     function productCtrl ($location,$http,$scope, authentication) {
-      $scope.categories = ['All', 'Tools', 'Books', 'Movies, Music & Games', 'Electronics', 'Toys', 'Clothes', 'Sports & Outdoors', 'Private Properties', 'Others'];
+      $scope.categories = ['All', 'TV','Tablet','Laptop','Smart Phone'];
       $scope.selectedCategory = $scope.categories[0];
       $scope.displayedItems = [];
       $scope.loggedIn = authentication.isLoggedIn();

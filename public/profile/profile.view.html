@@ -41,6 +41,12 @@
          </div>
       </div>
    </div>
+
+   <!--display transaction history   -->
+   <h1>Transaction History</h1>
+   <div class="row" style="margin-left: 20px" ng-repeat="item in transactionHistory | orderBy: 'transactionDate' ">
+      <h4> On {{item.transactionDate | date: "short"}} || Pay {{item.amount}} for: <span ng-repeat="fact in transactionFactDetail " ng-if="fact.transactionId == item.transactionId">  {{fact.name}}, </span> || delivery on date ????</h4>
+   </div>
    <!--Edit Profile Display Container-->
    <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" >
       <div class="modal-dialog" role="document">
